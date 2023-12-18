@@ -1,0 +1,52 @@
+﻿<Window x:Class="WpfApp1.Admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Admin" Height="1024" Width="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="43*"></RowDefinition>
+            <RowDefinition Height="61*"></RowDefinition>
+            <RowDefinition Height="654*"></RowDefinition>
+            <RowDefinition Height="250*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Label Content="План склада №" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Visibility="Hidden"/>
+        <Frame Name="Pages"  Margin="20, 0, 20, 0" BorderBrush="Black" BorderThickness="2"  Grid.Row="2" NavigationUIVisibility="Hidden" />
+
+        <Grid  x:Name="Options" Margin="500,720,20,15" Grid.Row="2" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140*"></ColumnDefinition>
+                <ColumnDefinition Width="90*"></ColumnDefinition>
+                <ColumnDefinition Width="140*"></ColumnDefinition>
+                <ColumnDefinition Width="140*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="% занято" FontSize="16" FontWeight="Bold" Grid.Row="0" Grid.Column="3" Margin="63,0,20,0"/>
+            <TextBlock x:Name="NonFreeSpaceTextBlock" TextWrapping="Wrap" Background="Yellow" Grid.Row="1" Grid.Column="3" Grid.RowSpan="3" Margin="5"/>
+            <TextBlock x:Name="FreeSpaceTextBlock" TextWrapping="Wrap" Background="Green" Grid.Row="1" Grid.Column="2" Grid.RowSpan="3" Margin="5"/>
+            <Label Content="% свободно" FontSize="16" FontWeight="Bold" Grid.Row="0" Grid.Column="2" Margin="0,0,15,0"/>
+            <Label Content="Общая площадь" FontSize="16" FontWeight="Bold" Grid.Row="0" Grid.Column="0"/>
+            <Label Content="Полезная площадь" FontSize="16" FontWeight="Bold" Grid.Column="0" Grid.Row="1"/>
+            <Label Content="Свободная площадь" FontSize="16" FontWeight="Bold" Grid.Row="2" Grid.Column="0"/>
+            <Label Content="Занятая площадь" FontSize="16" FontWeight="Bold" Grid.Row="3" Grid.Column="0"/>
+            <TextBox x:Name="CommonSpaceTextbox" TextWrapping="Wrap" IsEnabled="False" FontSize="16" Grid.Row="0" Grid.Column="1" Margin="5"/>
+            <TextBox x:Name="NonFreeSpaceTextbox" Background="Yellow" TextWrapping="Wrap" IsEnabled="False" FontSize="16" Grid.Row="3" Grid.Column="1" Margin="5"/>
+            <TextBox x:Name="FreeSpaceTextbox" Background="Green" TextWrapping="Wrap" IsEnabled="False" FontSize="16" Grid.Row="2" Grid.Column="1" Margin="5"/>
+            <TextBox x:Name="UsefullSpaceTextbox" TextWrapping="Wrap" IsEnabled="False" FontSize="16" Grid.Row="1" Grid.Column="1" Margin="5"/>
+        </Grid>
+        <Button x:Name="URButton" Content="Редактор пользователей" HorizontalAlignment="Left" Margin="20,0,0,0" VerticalAlignment="Center" Height="23" Width="147" Click="URButton_Click"/>
+        <Button x:Name="PRButton" Content="Редактор планов" HorizontalAlignment="Left" Margin="170,0,0,0" VerticalAlignment="Center" Height="23" Width="147"/>
+
+
+    </Grid>
+
+</Window>

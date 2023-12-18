@@ -1,0 +1,22 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1024" Width="1280">
+    <Grid>
+        <Label Content="Режим" HorizontalAlignment="Left" Margin="596,379,0,0" VerticalAlignment="Top" Width="160" FontSize="16"/>
+        <ComboBox x:Name="AccessCombobox" HorizontalAlignment="Left" Margin="596,415,0,0" VerticalAlignment="Top" Width="160" FontSize="16" SelectionChanged="ComboBox_SelectionChanged" SelectedIndex="-1">
+            <ComboBoxItem Content="Просмотр"/>
+            <ComboBoxItem Content="Загрузка"/>
+            <ComboBoxItem Content="Админ"/>
+        </ComboBox>
+        <Label Content="Имя пользователя" HorizontalAlignment="Left" Margin="596,447,0,0" VerticalAlignment="Top" Width="160" FontSize="16"/>
+        <TextBox x:Name="UserNameTextbox" HorizontalAlignment="Left" Margin="596,483,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontSize="16" IsEnabled="False"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="596,511,0,0" VerticalAlignment="Top" Width="160" FontSize="16"/>
+        <PasswordBox x:Name="PassBox" HorizontalAlignment="Left" Margin="596,547,0,0" VerticalAlignment="Top" Width="160" FontSize="16" IsEnabled="False"/>
+        <Button x:Name="EnterButton" Content="Войти" HorizontalAlignment="Left" Margin="596,575,0,0" VerticalAlignment="Top" Height="36" Width="160" FontSize="16" Click="EnterButton_Click"/>
+    </Grid>
+</Window>
