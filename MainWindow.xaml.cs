@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace WpfApp1
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         Database factory_db = new Database();
@@ -45,17 +44,27 @@ namespace WpfApp1
                 int access_level = AccessCombobox.SelectedIndex;
                 string username = UserNameTextbox.Text;
                 string password = PassBox.Password;
-                if (access_level == 2 &&  username =="admin" && password == "admin")
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                DataTable table = new DataTable();
+
+                string querrystring = $"SELECT username, password, access_level FROM dbo.users WHERE username='{username}' and password='{password}' and access_level='{access_level}'";
+                SqlCommand command = new SqlCommand(querrystring, factory_db.getConnection());
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
+                if (access_level == 2 &&  table.Rows.Count == 1)
                 {
                     Admin admin_window = new Admin();
                     admin_window.Show();
                     Hide();
                     
-                } else if (access_level == 1 &&  username =="loader" && password == "1234") {
+                } else if (access_level == 1 && table.Rows.Count == 1) {
                     Loader loader_window = new Loader();
                     loader_window.Show();
                     Hide();
-                } 
+                } else
+                {
+                    MessageBox.Show("Учетная запись не найдена.");
+                }
             }
             else if (AccessCombobox.SelectedIndex == 0)
             {
